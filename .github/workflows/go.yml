@@ -65,8 +65,9 @@ jobs:
     - name: Release
       uses: ncipollo/release-action@v1.8.6
       with:
-        artifact: ./build
+        artifacts: "./build/*"
         body: Auto Build Triggered by a commit
         draft: true
         name: Auto Release
+        tag: Auto
         token: ${{ secrets.TOKEN }}
