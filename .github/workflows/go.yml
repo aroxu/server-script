@@ -20,7 +20,7 @@ jobs:
         go-version: 1.16
     
     - name: Install Dependency
-      run: go mod download github.com/cavaliercoder/grab
+      run: go mod download github.com/cavaliercoder/grab && go get monun/server-script/utils/logger
     
     - name: Build macOS
       run: mkdir -p build/server_darwin_x64 && GOOS=darwin GOARCH=amd64 go build -o build/server_darwin_x64/server
