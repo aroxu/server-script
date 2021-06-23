@@ -61,14 +61,3 @@ jobs:
       with:
         name: Windows x86
         path: ./build/server_windows_x86.exe
-    - name: Set current date as env variable
-      run: echo "NOW::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
-    - name: Release
-      uses: ncipollo/release-action@v1.8.6
-      with:
-        artifacts: "./build/*"
-        body: Auto Build Triggered by a commit
-        name: Auto Release
-        tag: ${env.NOW}
-        Prerelease: false
-        token: ${{ secrets.TOKEN }}
