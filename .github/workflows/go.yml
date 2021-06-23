@@ -64,9 +64,12 @@ jobs:
         
     - name: Release
       uses: softprops/action-gh-release@v0.1.5
+      env:
+        GITHUB_TOKEN: ${{secrets.TOKEN}}
       with:
         body: Auto Release
         name: Auto Release
         draft: false
         prerelease: false
         files: "./build/*"
+        tag_name: ${GITHUB_SHA::6}
