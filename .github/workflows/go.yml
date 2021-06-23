@@ -67,7 +67,6 @@ jobs:
       with:
         artifacts: "./build/*"
         body: Auto Build Triggered by a commit
-        draft: true
         name: Auto Release
         tag: Auto
         token: ${{ secrets.TOKEN }}
