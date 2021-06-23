@@ -1,0 +1,29 @@
+name: Go
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.16
+
+    - name: Build
+      run: ./builder.sh
+      
+    - name: Upload a Build Artifact
+    uses: actions/upload-artifact@v2.2.4
+    with:
+      name: Build artifact
+      path: ./build
+
