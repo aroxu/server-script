@@ -63,11 +63,10 @@ jobs:
         path: ./build/server_windows_x86.exe
         
     - name: Release
-      uses: ncipollo/release-action@v1.8.6
+      uses: softprops/action-gh-release@v0.1.5
       with:
-        artifacts: "./build/*"
-        body: Auto Build Triggered by a commit
+        body: Auto Release
         name: Auto Release
-        tag: ${GITHUB_SHA::6}
-        Prerelease: false
-        token: ${{ secrets.TOKEN }}
+        draft: false
+        prerelease: false
+        files: "./build/*"
