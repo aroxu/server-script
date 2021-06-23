@@ -69,5 +69,5 @@ jobs:
         body: Auto Build Triggered by a commit
         name: Auto Release
         tag: Actions
-        Prerelease: true
+        Prerelease: false
         token: ${{ secrets.TOKEN }}
