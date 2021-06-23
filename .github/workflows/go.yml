@@ -52,7 +52,7 @@ jobs:
       uses: actions/upload-artifact@v2.2.4
       with:
         name: Windows x64
-        path: ./build/server_windows_x86.exe
+        path: ./build/server_windows_x64.exe
         
     - name: Build Windows x86
       run: GOOS=windows GOARCH=386 go build -o build/server_windows_x86.exe
