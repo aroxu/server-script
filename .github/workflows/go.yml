@@ -61,3 +61,12 @@ jobs:
       with:
         name: Windows x86
         path: ./build/server_win_x86/server.exe
+        
+    - name: Release
+      uses: ncipollo/release-action@v1.8.6
+      with:
+        artifact: ./build
+        body: Auto Build Triggered by a commit
+        draft: true
+        name: Auto Release
+        token: ${{ secrets.TOKEN }}
