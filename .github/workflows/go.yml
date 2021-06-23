@@ -68,6 +68,6 @@ jobs:
         artifacts: "./build/*"
         body: Auto Build Triggered by a commit
         name: Auto Release
-        tag: ${{ env.DATE }}
+        tag: ${{ GITHUB_SHA }}
         Prerelease: false
         token: ${{ secrets.TOKEN }}
