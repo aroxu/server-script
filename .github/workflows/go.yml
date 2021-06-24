@@ -61,3 +61,11 @@ jobs:
       with:
         name: Windows x86
         path: ./build/server_windows_x86.exe
+    - name: release
+      uses: Roang-zero1/github-upload-release-artifacts-action@master
+      with:
+        args: ./build/*
+      env: 
+        GITHUB_TOKEN: ${{secrets.TOKEN}}
+        release_body: Auto Release
+        
