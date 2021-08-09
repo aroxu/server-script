@@ -48,7 +48,7 @@ func generateConfig() {
 	defer serverConfFile.Close()
 
 	_, errWrtConf := serverConfFile.WriteString(`{
-  "server": "https://papermc.io/api/v1/paper/1.16.5/latest/download",
+  "server": "https://papermc.io/api/v1/paper/1.17.1/latest/download",
   "debug": false,
   "debug_port": 5005,
   "backup": true,
