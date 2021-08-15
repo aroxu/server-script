@@ -23,19 +23,19 @@ jobs:
         run: mkdir build
 
       - name: Build for Darwin
-        run: GOOS=darwin GOARCH=amd64 go build -o build/server_darwin_x64
+        run: CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -a -o build/server_darwin_x64
 
       - name: Build for Linux x64
-        run: GOOS=linux GOARCH=amd64 go build -o build/server_linux_x64
+        run: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o build/server_linux_x64
 
       - name: Build for Linux x86
-        run: GOOS=linux GOARCH=386 go build -o build/server_linux_x86
+        run: CGO_ENABLED=0 GOOS=linux GOARCH=386 go build -a -o build/server_linux_x86
 
       - name: Build for Windows x64
-        run: GOOS=windows GOARCH=amd64 go build -o build/server_windows_x64.exe
+        run: CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -a -o build/server_windows_x64.exe
 
       - name: Build for Windows x86
-        run: GOOS=windows GOARCH=386 go build -o build/server_windows_x86.exe
+        run: CGO_ENABLED=0 GOOS=windows GOARCH=386 go build -a -o build/server_windows_x86.exe
 
       - name: Check Files
         run: ls -al . && ls -al build/
