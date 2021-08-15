@@ -22,7 +22,6 @@ func CheckJava() (javaFlavor, javaVersion string) {
 }
 
 func RunServer(arguments []string) {
-	serverFile := strings.Split(arguments[len(arguments)-1], "/")
 	interactiveExecutor("java", arguments)
 }
 
