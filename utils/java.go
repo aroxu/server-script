@@ -23,11 +23,8 @@ func CheckJava() (javaFlavor, javaVersion string) {
 
 func RunServer(arguments []string) {
 	serverFile := strings.Split(arguments[len(arguments)-1], "/")
-	logger.Info(fmt.Sprintf("Running server with %s", serverFile[len(serverFile)-1]))
 	interactiveExecutor("java", arguments)
 }
-// This function currently have some error on Arch Linux; I don't know this happens to other platforms, so you need to test it. (BaeHyeonWoo)
-// See this for more information: (https://cdn.discordapp.com/attachments/856807097575407620/860731457386053652/unknown.png)
 
 func SelectOptionByMemory(memory int) []string {
 	memoryOptions := []string{}
