@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
@@ -41,7 +42,7 @@ func (z zipType) dir(dirPath string, zipPath string) error {
 	}
 	for _, file := range files {
 		fullPath := dirPath + string(filepath.Separator) + file.Name()
-		if file.IsDir() && file.Name() != ".backup" && file.Name() != "cache" {
+		if file.IsDir() && strings.Contains(file.Name(), ".backup") && strings.Contains(file.Name(), "cache") {
 			if err != nil {
 				return err
 			}
