@@ -32,7 +32,7 @@
 ## server.conf.json의 server 설정 (서버로 사용할 jar파일)
 
 1. URL (웹에서 파일을 다운로드하여 `server=~/.minecraft/server/` 폴더에 저장 후 서버 시작)
-   - `server=https://papermc.io/api/v1/paper/1.16.5/latest/download`
+   - `server=https://clip.aroxu.me/download?mc_version=1.18`
 2. 로컬 경로
    - `server=/user/monun/my.jar`
    - `server=$HOME/.jar`
