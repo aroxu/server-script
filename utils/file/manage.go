@@ -1,7 +1,7 @@
 package file
 
 import (
-	"monun/server-script/utils/logger"
+	"aroxu/server-script/utils/logger"
 	"os"
 )
 

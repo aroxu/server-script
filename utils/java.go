@@ -1,9 +1,9 @@
 package utils
 
 import (
+	"aroxu/server-script/utils/logger"
 	"errors"
 	"fmt"
-	"monun/server-script/utils/logger"
 	"os"
 	"os/exec"
 	"strings"

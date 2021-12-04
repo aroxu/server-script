@@ -1,10 +1,10 @@
 package config
 
 import (
+	"aroxu/server-script/utils/logger"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"monun/server-script/utils/logger"
 	"os"
 )
 

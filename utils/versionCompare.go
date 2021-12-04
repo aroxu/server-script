@@ -1,6 +1,6 @@
 package utils
 
-import "monun/server-script/utils/logger"
+import "aroxu/server-script/utils/logger"
 
 func VersionOrdinal(version string) string {
 	// ISO/IEC 14651:2011

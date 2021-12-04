@@ -1,12 +1,12 @@
 package main
 
 import (
+	"aroxu/server-script/config"
+	"aroxu/server-script/utils"
+	"aroxu/server-script/utils/file"
+	"aroxu/server-script/utils/logger"
 	"bufio"
 	"fmt"
-	"monun/server-script/config"
-	"monun/server-script/utils"
-	"monun/server-script/utils/file"
-	"monun/server-script/utils/logger"
 	"os"
 	"os/signal"
 	"runtime"
