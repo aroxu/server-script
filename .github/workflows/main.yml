@@ -22,14 +22,23 @@ jobs:
       - name: Create Build Directory
         run: mkdir build
 
-      - name: Build for Darwin
+      - name: Build for Darwin x64
         run: CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -a -o build/server_darwin_x64
+
+      - name: Build for Darwin arm64
+        run: CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -a -o build/server_darwin_arm64
+
+      - name: Build for Linux x86
+        run: CGO_ENABLED=0 GOOS=linux GOARCH=386 go build -a -o build/server_linux_x86
 
       - name: Build for Linux x64
         run: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o build/server_linux_x64
 
-      - name: Build for Linux x86
-        run: CGO_ENABLED=0 GOOS=linux GOARCH=386 go build -a -o build/server_linux_x86
+      - name: Build for Linux arm
+        run: CGO_ENABLED=0 GOOS=linux GOARCH=arm go build -a -o build/server_linux_arm
+        
+      - name: Build for Linux arm64
+        run: CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -a -o build/server_linux_arm64
 
       - name: Build for Windows x64
         run: CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -a -o build/server_windows_x64.exe
@@ -40,14 +49,23 @@ jobs:
       - name: Check Files
         run: ls -al . && ls -al build/
 
-      - name: Zip Build file for Darwin
+      - name: Zip Build file for Darwin x64
         run: mv build/server_darwin_x64 ./server && zip server_darwin_x64.zip server && rm -rf server
+
+      - name: Zip Build file for Darwin arm64
+        run: mv build/server_darwin_arm64 ./server && zip server_darwin_arm64.zip server && rm -rf server
+
+      - name: Zip Build file for Linux x86
+        run: mv build/server_linux_x86 ./server && zip server_linux_x86.zip server && rm -rf server
 
       - name: Zip Build file for Linux x64
         run: mv build/server_linux_x64 ./server && zip server_linux_x64.zip server && rm -rf server
 
-      - name: Zip Build file for Linux x86
-        run: mv build/server_linux_x86 ./server && zip server_linux_x86.zip server && rm -rf server
+      - name: Zip Build file for Linux arm
+        run: mv build/server_linux_arm ./server && zip server_linux_arm.zip server && rm -rf server
+
+      - name: Zip Build file for Linux arm64
+        run: mv build/server_linux_arm64 ./server && zip server_linux_arm64.zip server && rm -rf server
 
       - name: Zip Build file for Windows x64
         run: mv build/server_windows_x64.exe ./server.exe && zip server_windows_x64.exe.zip server.exe && rm -rf server.exe
@@ -73,7 +91,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Darwin Artifact
+      - name: Upload Darwin x64 Artifact
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -81,6 +99,26 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: server_darwin_x64.zip
           asset_name: server_darwin_x64.zip
+          asset_content_type: application/zip
+
+      - name: Upload Darwin arm64 Artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: server_darwin_arm64.zip
+          asset_name: server_darwin_arm64.zip
+          asset_content_type: application/zip
+
+      - name: Upload Linux x86 Artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: server_linux_x86.zip
+          asset_name: server_linux_x86.zip
           asset_content_type: application/zip
 
       - name: Upload Linux x64 Artifact
@@ -93,14 +131,24 @@ jobs:
           asset_name: server_linux_x64.zip
           asset_content_type: application/zip
 
-      - name: Upload Linux x86 Artifact
+      - name: Upload Linux arm Artifact
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: server_linux_x86.zip
-          asset_name: server_linux_x86.zip
+          asset_path: server_linux_arm.zip
+          asset_name: server_linux_arm.zip
+          asset_content_type: application/zip
+
+      - name: Upload Linux arm64 Artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: server_linux_arm64.zip
+          asset_name: server_linux_arm64.zip
           asset_content_type: application/zip
 
       - name: Upload Windows x64 Artifact
