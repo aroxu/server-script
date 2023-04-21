@@ -48,14 +48,14 @@ func generateConfig() {
 	defer serverConfFile.Close()
 
 	_, errWrtConf := serverConfFile.WriteString(`{
-  "server": "https://clip.aroxu.me/download?mc_version=1.19",
+  "server": "https://clip.aroxu.me/download?mc_version=1.19.4",
   "debug": false,
   "debug_port": 5005,
   "backup": true,
   "restart": true,
   "memory": 4,
   "plugins": [
-    "https://github.com/monun/auto-reloader/releases/download/0.0.4/auto-reloader-0.0.4.jar"
+    "https://github.com/monun/auto-reloader/releases/download/0.0.6/auto-reloader-0.0.6.jar"
   ],
   "jarArgs": ["nogui"]
 }`)
